@@ -22,7 +22,7 @@ export const SearchParams = () => {
     flowerColor: "",
   });
   const [family, setFamily] = useState([]);
-  const [genus, isLoading] = useGenusList(family);
+  const [genus] = useGenusList(family);
   const results = useQuery(["plants", searchParams], fetchPlants);
   const plants = results?.data?.data ?? [];
   return (
