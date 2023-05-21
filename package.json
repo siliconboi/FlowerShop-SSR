@@ -1,6 +1,7 @@
 {
   "name": "flowershop",
   "private": true,
+  "proxy":"https://trefle.io/api/v1/genus",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

@@ -1,15 +1,25 @@
-import { createRoot } from "react-dom/client";
-import { Routes, Route, Link } from 'react-router-dom'
-import { createContext, useState } from 'react'
+import { useState } from 'react'
+import { Routes, Route, Link, BrowserRouter } from 'react-router-dom'
 import { Details } from './components/Details'
-import SearchParams from './components/SearchParams'
-import { QueryClientProvider } from '@tanstack/react-query'
-const ThemeContext = createContext()
-function App() {
-  const theme = useState("green")
+import {SearchParams} from './components/SearchParams'
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
+import { ThemeContext } from "../lib/ThemeContext";
+
+const queryClient = new QueryClient({
+defaultOptions:{
+  queries:{
+    staleTime: Infinity,
+    cacheTime: Infinity
+  }
+}
+})
+const App=()=> {
+  const theme = useState("blue");
   return (
     <div>
-      <ThemeContext.Provider theme={theme}>
+      <BrowserRouter>
+      <ThemeContext.Provider value={theme}>
+        <QueryClientProvider client={queryClient}>
         <header>
           <Link to='/'>Flower Store</Link>
         </header>
@@ -17,10 +27,10 @@ function App() {
      <Route path='/details/:id' element={<Details/>}/>
      <Route path='/' element={<SearchParams/>}/>
     </Routes>
+    </QueryClientProvider>
     </ThemeContext.Provider>
+    </BrowserRouter>
     </div>
   )
 }
-const container = document.getElementById("root");
-const root = createRoot(container);
-root.render(<App />);
+export default App
