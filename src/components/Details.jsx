@@ -7,11 +7,7 @@ import { Modal } from "./Modal";
 import { useState } from "react";
 import { ErrorBoundary } from "../../lib/ErrorBoundary";
 
-<<<<<<< HEAD
- const Details = () => {
-=======
 const Details = () => {
->>>>>>> 091055e82e7f4b1e0f5c9d88238cd4fca2677e35
   const { id } = useParams();
   const result = useQuery(["plant", id], fetchPlant);
   const plant = result?.data?.data ?? [];
@@ -49,8 +45,4 @@ export default function DetailsErrorBoundary(props){
       <Details {...props}/>
     </ErrorBoundary>
   )
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 091055e82e7f4b1e0f5c9d88238cd4fca2677e35
