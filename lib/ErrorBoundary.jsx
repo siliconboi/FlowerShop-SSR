@@ -22,6 +22,7 @@ class ErrorBoundary extends Component {
         </div>
       );
     }
+    // eslint-disable-next-line react/prop-types
     return this.props.children;
   }
 }

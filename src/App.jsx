@@ -12,8 +12,9 @@ defaultOptions:{
 }
 })
 
-const SearchParams = lazy(()=>import("./components/SearchParams"))
-const Details = lazy(()=>import("./components/Details"))
+const SearchParams = lazy(()=>import('./components/SearchParams'))
+const Details = lazy(()=>import('./components/Details'))
+
 const App=()=> {
   const theme = useState("blue");
   return (
@@ -21,9 +22,11 @@ const App=()=> {
       <BrowserRouter>
       <ThemeContext.Provider value={theme}>
         <QueryClientProvider client={queryClient}>
-          <Suspense fallback={<div>
-            loading...
-          </div>}>
+          <Suspense fallback={
+            <div>
+              loading...
+            </div>
+          }>
         <header>
           <Link to='/'>Flower Store</Link>
         </header>
