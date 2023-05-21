@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build:client": "vite build --outDir ../dist/client",
-    "build:server": "vite build --outDir ../dist/server --ssr ServerApp.jsx",
+    "build:server": "vite build --outDir ../dist/server --ssr ./src/ServerApp.jsx",
     "build": "npm run build:client && npm run build:server",
     "start": "node --experimental-fetch server.js",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
