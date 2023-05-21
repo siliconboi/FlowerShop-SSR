@@ -4,7 +4,7 @@ import { Results } from "./Results";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPlants } from "../hooks/fetchPlants";
 
-export const SearchParams = () => {
+const SearchParams = () => {
   const Families = [
     ["Daisy Family", "13"],
     ["Lily Family", "377"],
@@ -86,3 +86,5 @@ export const SearchParams = () => {
     </div>
   );
 };
+
+export default SearchParams
