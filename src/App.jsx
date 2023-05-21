@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Routes, Route, Link, BrowserRouter } from 'react-router-dom'
-import { Details } from './components/Details'
+import { Routes, Route, Link } from 'react-router-dom'
+import  Details  from './components/Details'
 import {SearchParams} from './components/SearchParams'
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 import { ThemeContext } from "../lib/ThemeContext";
@@ -17,7 +17,6 @@ const App=()=> {
   const theme = useState("blue");
   return (
     <div>
-      <BrowserRouter>
       <ThemeContext.Provider value={theme}>
         <QueryClientProvider client={queryClient}>
         <header>
@@ -29,7 +28,6 @@ const App=()=> {
     </Routes>
     </QueryClientProvider>
     </ThemeContext.Provider>
-    </BrowserRouter>
     </div>
   )
 }

@@ -4,8 +4,9 @@ import { fetchPlant } from "../hooks/fetchPlant";
 import { Carousel } from "./Carousel";
 import { Modal } from "./Modal";
 import { useState } from "react";
+import { ErrorBoundary } from "../../lib/ErrorBoundary";
 
-export const Details = () => {
+ const Details = () => {
   const { id } = useParams();
   const result = useQuery(["plant", id], fetchPlant);
   const plant = result?.data?.data ?? [];
@@ -36,3 +37,11 @@ export const Details = () => {
     </div>
   );
 };
+
+export default function DetailsErrorBoundary(props){
+  return(
+    <ErrorBoundary>
+      <Details {...props}/>
+    </ErrorBoundary>
+  )
+}
