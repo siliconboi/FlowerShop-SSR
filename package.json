@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build:client": "vite build --OutDir ../dist/client",
-    "build:server": "vite build --OutDir ../dist/server --ssr ServerApp.jsx",
+    "build:client": "vite build --outDir ../dist/client",
+    "build:server": "vite build --outDir ../dist/server --ssr ServerApp.jsx",
     "build": "npm run build:client && npm run build:server",
     "start": "node --experimental-fetch server.js",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",

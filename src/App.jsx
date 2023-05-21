@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route, Link, BrowserRouter } from 'react-router-dom'
-import { Details } from './components/Details'
-import {SearchParams} from './components/SearchParams'
+import { Routes, Route, Link } from 'react-router-dom'
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 import { ThemeContext } from "../lib/ThemeContext";
 
