@@ -1,7 +1,5 @@
-import { useState } from 'react'
+import { Suspense, lazy, useState } from 'react'
 import { Routes, Route, Link, BrowserRouter } from 'react-router-dom'
-import { Details } from './components/Details'
-import {SearchParams} from './components/SearchParams'
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 import { ThemeContext } from "../lib/ThemeContext";
 
@@ -13,6 +11,9 @@ defaultOptions:{
   }
 }
 })
+
+const SearchParams = lazy(()=>import("./components/SearchParams"))
+const Details = lazy(()=>import("./components/Details"))
 const App=()=> {
   const theme = useState("blue");
   return (
@@ -20,6 +21,9 @@ const App=()=> {
       <BrowserRouter>
       <ThemeContext.Provider value={theme}>
         <QueryClientProvider client={queryClient}>
+          <Suspense fallback={<div>
+            loading...
+          </div>}>
         <header>
           <Link to='/'>Flower Store</Link>
         </header>
@@ -27,6 +31,7 @@ const App=()=> {
      <Route path='/details/:id' element={<Details/>}/>
      <Route path='/' element={<SearchParams/>}/>
     </Routes>
+    </Suspense>
     </QueryClientProvider>
     </ThemeContext.Provider>
     </BrowserRouter>
