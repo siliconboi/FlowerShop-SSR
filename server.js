@@ -9,7 +9,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 // eslint-disable-next-line no-undef
 const PORT = process.env.PORT || 8080
 
-const html = fs.readFileSync(path.resolve(__dirname, "./dist/client/index/html")).toString()
+const html = fs.readFileSync(path.resolve(__dirname, "./dist/client/index.html")).toString()
 const parts = html.split("not rendered")
 const app = express()
 
@@ -33,5 +33,5 @@ const stream = renderApp(req.url,{
     }
 })
 })
-
+console.log(`listening on http://localhost:${PORT}`)
 app.listen(PORT)
