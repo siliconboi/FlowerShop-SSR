@@ -18,7 +18,7 @@ const Details = lazy(()=>import('./components/Details'))
 const App=()=> {
   const theme = useState("blue");
   return (
-    <div>
+    <div className="my-0 w-full">
       <ThemeContext.Provider value={theme}>
         <QueryClientProvider client={queryClient}>
           <Suspense fallback={
@@ -26,13 +26,15 @@ const App=()=> {
               loading...
             </div>
           }>
-        <header>
+        <header className="text-4xl no-underline rounded text-green-500 font-extrabold shadow bg-slate-200 h-20 pt-4 px-4">      
           <Link to='/'>Flower Store</Link>
         </header>
+        <div className=" bg-gradient-to-tl from-slate-800 to-slate-200 p-4">
     <Routes>
      <Route path='/details/:id' element={<Details/>}/>
      <Route path='/' element={<SearchParams/>}/>
     </Routes>
+    </div>
     </Suspense>
     </QueryClientProvider>
     </ThemeContext.Provider>

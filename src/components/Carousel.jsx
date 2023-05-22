@@ -19,12 +19,13 @@ class Carousel extends Component {
     const { active } = this.state;
     const { images } = this.props;
     return (
-      <div>
+      <div className="flex items-center justify-center overflow-auto">
         {images.map((image, index) => (
           <img
+          className=" rounded m-1 inline"
             src={image.image_url}
             alt=""
-            key={image.image_url}
+            key={index}
             data-index={index}
             style={index === active ?{height:"20rem"} : {height:"12rem"}}
             onClick={this.handleIndexClick}

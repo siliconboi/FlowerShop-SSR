@@ -26,8 +26,8 @@ const SearchParams = () => {
   const results = useQuery(["plants", searchParams], fetchPlants);
   const plants = results?.data?.data ?? [];
   return (
-    <div>
-      <form
+    <div className=" m-auto p-24 justify-center text-green-800 font-medium">
+      <form className="m-6 h-fit block text-lg py-6 px-8 rounded shadow-md bg-slate-200"
         onSubmit={(e) => {
           e.preventDefault();
           const formData = new FormData(e.target);
@@ -39,8 +39,8 @@ const SearchParams = () => {
           setSearchParams(obj);
         }}
       >
-        <label htmlFor="family">
-          <select
+        <label htmlFor="family" className=" block mr-2">Family
+          <select className="w-20 sm:w-44 ml-2"
             id="family"
             name="family"
             onChange={(e) => {
@@ -60,8 +60,8 @@ const SearchParams = () => {
             ))}
           </select>
         </label>
-        <label htmlFor="genus">
-          <select disabled={!(genus?.data?.length)} id="genus" name="genus">
+        <label htmlFor="genus" className="block mr-2">Genus
+          <select className=" w-20 sm:w-44 ml-2" disabled={!(genus?.data?.length)} id="genus" name="genus">
             <option />
             {genus?.data?.map((g) => (
               <option key={g.name} value={g.name}>
@@ -70,8 +70,8 @@ const SearchParams = () => {
             ))}
           </select>
         </label>
-        <label htmlFor="flowerColor">
-          <select id="flowerColor" name="flowerColor">
+        <label htmlFor="flowerColor" className="block mr-2">Flower Color
+          <select className="ml-2 w-20 sm:w-44" id="flowerColor" name="flowerColor">
             <option />
             {Color.map((g) => (
               <option key={g} value={g}>
@@ -80,7 +80,7 @@ const SearchParams = () => {
             ))}
           </select>
         </label>
-        <button type="submit">submit</button>
+        <button className="block px-3 py-0.5 rounded-sm bg-slate-300 hover:bg-slate-400 rounded-none shadow-none" type="submit">submit</button>
       </form>
       <Results plants={plants} />
     </div>

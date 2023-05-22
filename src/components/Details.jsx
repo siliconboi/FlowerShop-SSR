@@ -14,7 +14,8 @@ const Details = () => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="text-xl text-green-100">
+      <div className="h-full w-full">
       <Carousel images={plant?.main_species?.images?.flower} />
       The species `{plant?.scientific_name}` is a plant described by 
       {plant?.author} in {plant?.year}. It belongs to the {plant?.main_species?.family}{" "}
@@ -27,12 +28,15 @@ const Details = () => {
       Based on the information available, `{plant?.scientific_name}` is an 
       {plant?.main_species?.status} species within the {plant?.main_species?.family} family. It has the
       slug `{plant?.slug}`` and is classified as a {plant?.main_species?.rank}.
-      <button onClick={() => setShowModal(true)}>buy</button>
+      <button className="bg-green-900 justify-center mx-auto px-6 py-0.5 rounded block my-3" onClick={() => setShowModal(true)}>buy</button>
+      </div>
       {showModal ? (
         <Modal>
-          <div>buy this plant</div>
-          <button onClick={() => setShowModal(false)}>no</button>
-          <button onClick={() => navigate("/")}>yes</button>
+          <div className=" h-screen text-2xl fixed w-full bg-opacity-20 z-10 bg-slate-50 flex justify-center align-items-center">
+          <div className="rounded-lg shadow-sm align-items-center justify-items-center m-auto h-1/4 w-1/3 bg-slate-50"><div className="block m-auto text-center my-2">Buy this plant?</div>
+          <button className="block bg-slate-200 w-24 m-auto my-2" onClick={() => setShowModal(false)}>No</button>
+          <button className="block bg-slate-200 w-24 m-auto my-2" onClick={() => navigate("/")}>Yes</button></div>
+          </div>
         </Modal>
       ) : null}
     </div>

@@ -4,7 +4,7 @@ import { Plant } from "./Plant";
 export const Results = ({plants}) => {
   console.log(plants)
   return (
-    <div>
+    <div className=" grid gap-4 grid-cols-1 sm:grid-cols-3">
       {!plants.length ? (
         <h1>no plants found</h1>
       ) : (
