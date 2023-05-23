@@ -3,7 +3,7 @@ export const fetchGenusList = async ({ queryKey }) => {
   if (!id.length) return [];
   
   const res = await fetch(
-    `https://trefle.io/api/v1/genus?token=nPhiI1owDYQTM_cM-GzkSeO-w7_zFtZ3dRGKPwPVQ0o&filter%5Bfamily_id%5D=${id}`,{
+    `https://cors-anywhere.herokuapp.com/https://trefle.io/api/v1/genus?token=nPhiI1owDYQTM_cM-GzkSeO-w7_zFtZ3dRGKPwPVQ0o&filter%5Bfamily_id%5D=${id}`,{
       method: 'GET',
       mode: 'cors',
     }
